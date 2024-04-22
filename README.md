@@ -18,6 +18,8 @@ yarn install
 
 # bun
 bun install
+
+** เมื่อ run ได้แล้ว หากเว็บ redirect หรือหน้าจอ ไปที่ https://komgrip.co.th ให้กด refesh 1 ครั้ง ** 
 ```
 
 ## Development Server
