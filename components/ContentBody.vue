@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid py-4">
+    <div>
         <div class="row">
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" v-for="item in cryptoPrices" :key="item.id">
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4" v-for="item in cryptoData" :key="item.id">
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
@@ -9,10 +9,10 @@
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">{{ item.name }}</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        {{ item.price }}
+                                        {{ currencyFormat(item.marketCapUsd) }}
                                     </h5>
-                                    <span class="text-success text-sm font-weight-bolder">{{ item.changePercent24Hr
-                                        }}%</span>
+                                    <span class="text-success text-sm font-weight-bolder">{{
+                                        numberWithCommas(item.changePercent24Hr) }}%</span>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -33,14 +33,22 @@
 const props = defineProps({
     cryptoData: Object
 });
-const cryptoPrices = [
-    { id: 1, changePercent24Hr: "-0.084", name: 'Bitcoin', price: '$41,000', icon: 'bi bi-cash-coin' },
-    { id: 2, changePercent24Hr: "3.013", name: 'Ethereum', price: '$3,100', icon: 'bi bi-cash-coin' },
-    { id: 3, changePercent24Hr: "0.473", name: 'Cardano', price: '$0.85', icon: 'bi bi-cash-coin' },
-    { id: 4, changePercent24Hr: "4.559", name: 'Solana', price: '$135', icon: 'bi bi-cash-coin' }
-];
+const numberWithCommas = (value) => {
+    if (value === null) return 'NO LIMIT';
+    return Number(value).toLocaleString();
+};
+
+const currencyFormat = (value) => {
+    return `$${numberWithCommas(value)}`;
+};
 </script>
 <style scoped>
+.card {
+    border: 1px solid transparent !important;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+}
+
 .icon-shape {
     width: 48px;
     height: 48px;

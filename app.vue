@@ -8,7 +8,6 @@
       <!-- Content body section -->
       <div class="col-md-10">
         <Navbar />
-        <ContentBody :crypto-data="data" />
         <CryptoTable :crypto-data="data" />
       </div>
     </div>

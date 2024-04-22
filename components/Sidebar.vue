@@ -27,7 +27,7 @@
             <div class="nav-link-text ms-1"> Menu 4</div>
         </button>
 
-        <div class="background-container mt-24">
+        <div class="background-container needHelpBox">
             <h6>Need help?</h6>
             <p>CoinCap API 2.0</p>
             <a class="btn btn-white mb-0" href="#">Documentation</a>
@@ -36,8 +36,11 @@
 </template>
 
 <style lang="css">
-.mt-24 {
-    margin-top: 240px;
+.needHelpBox {
+    position: absolute;
+    bottom: 20%;
+    width: auto;
+    min-width: 200px
 }
 
 .profile-image {
