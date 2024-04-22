@@ -39,7 +39,11 @@
                     <td class="text-data-primary">{{ numberWithCommas(item.supply) }} / {{
                         numberWithCommas(item.maxSupply) }}</td>
                     <td class="text-data-primary">{{ currencyFormat(item.marketCapUsd) }}</td>
-                    <td class="text-data-primary">{{ numberWithCommas(item.changePercent24Hr) }}%</td>
+                    <td
+                        :class="{ 'text-success': parseNumber(item.changePercent24Hr) > 0, 'text-danger': parseNumber(item.changePercent24Hr) < 0 }">
+                        {{ numberWithCommas(item.changePercent24Hr) }}%
+                    </td>
+
                 </tr>
 
             </tbody>
@@ -89,6 +93,9 @@ const numberWithCommas = (value) => {
 const currencyFormat = (value) => {
     return `$${numberWithCommas(value)}`;
 };
+const parseNumber = (value) => {
+    return parseFloat(value);
+};
 </script>
 
 <style scoped>
@@ -135,9 +142,21 @@ const currencyFormat = (value) => {
 
 .text-copy {
     text-align: left;
+    color: #67748e !important;
 }
 
 .font-current-title {
     color: #344767;
+}
+
+.text-success {
+    color: #82d616 !important;
+    font-weight: 400;
+}
+
+.text-danger {
+    color: #ea0606 !important;
+    font-weight: 400;
+
 }
 </style>

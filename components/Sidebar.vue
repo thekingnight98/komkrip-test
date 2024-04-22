@@ -36,6 +36,10 @@
 </template>
 
 <style lang="css">
+.nav-link-text {
+    color: #67748e !important;
+}
+
 .needHelpBox {
     position: absolute;
     bottom: 20%;

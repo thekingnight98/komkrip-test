@@ -11,8 +11,11 @@
                                     <h5 class="font-weight-bolder mb-0">
                                         {{ currencyFormat(item.marketCapUsd) }}
                                     </h5>
-                                    <span class="text-success text-sm font-weight-bolder">{{
-                                        numberWithCommas(item.changePercent24Hr) }}%</span>
+
+                                    <span
+                                        :class="{ 'text-success': parseNumber(item.changePercent24Hr) > 0, 'text-danger': parseNumber(item.changePercent24Hr) < 0 }"
+                                        class="text-success text-sm font-weight-bolder">{{
+                                            numberWithCommas(item.changePercent24Hr) }}%</span>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -40,6 +43,9 @@ const numberWithCommas = (value) => {
 
 const currencyFormat = (value) => {
     return `$${numberWithCommas(value)}`;
+};
+const parseNumber = (value) => {
+    return parseFloat(value);
 };
 </script>
 <style scoped>
@@ -87,5 +93,16 @@ const currencyFormat = (value) => {
     stroke: none;
     display: inline-block;
     color: #111111;
+}
+
+.text-success {
+    color: #82d616 !important;
+    font-weight: 600;
+
+}
+
+.text-danger {
+    color: #ea0606 !important;
+    font-weight: 600;
 }
 </style>
