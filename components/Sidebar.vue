@@ -90,13 +90,7 @@
     padding-bottom: 0.675rem;
     margin: 0 1rem;
     background-color: #fff !important;
-}
-
-.btn:hover {
-    background-color: #fff;
-    color: #000;
-    transition: all 0.15s ease-in;
-    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 50px rgba(0, 0, 0, .1);
 }
 
 navbar-vertical .navbar-nav>.nav-item .nav-link.active {
@@ -142,5 +136,11 @@ navbar-vertical .navbar-nav>.nav-item .nav-link.active {
     stroke: none;
     display: inline-block;
     color: #111111;
+}
+
+.btn:hover {
+    text-shadow: none !important;
+    background-color: #fff;
+    color: #000;
 }
 </style>

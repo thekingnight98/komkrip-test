@@ -1,6 +1,6 @@
 <template>
     <ContentBody :crypto-data="topCryptoData" />
-    <div class="table-responsive ">
+    <div class="table-responsive mt-4">
         <nav>
             <div class="d-flex justify-content-between align-items-center w-100">
                 <h4 class="pt-2 ps-4 font-current-title">Cryptocurrencies</h4>
@@ -50,7 +50,7 @@
         </table>
     </div>
     <!-- Copyright text -->
-    <div class="text-copy mt-4">
+    <div class="text-copy mt-4 mb-4">
         Copyright © 2022 Komgrip Technologies Co.,Ltd
     </div>
 </template>
@@ -100,18 +100,22 @@ const parseNumber = (value) => {
 
 <style scoped>
 .table-responsive {
-    background-color: #fff;
-    /* border: 1px solid grey; */
+    background-color: #fff !important;
     border-radius: 10px;
 }
 
 .btn-outline-primary {
     color: #cb0c9f;
-    border-color: #cb0c9f;
     border: 1px solid #cb0c9f;
     border-radius: 8px;
     width: 80px;
     height: 35px;
+}
+
+.btn-outline-primary:active {
+    background-color: transparent;
+    border-color: #901c75;
+    transform: translateY(4px)
 }
 
 .text-primary {
